@@ -23,15 +23,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mozidev.firstproject.Info.java"
-            android:label="@string/title_activity_info.java" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name="com.mozidev.firstproject.TwoActivity"
             android:label="@string/title_activity_two" >
         </activity>
@@ -39,10 +30,7 @@
             android:name="com.mozidev.firstproject.WebActivity"
             android:label="@string/title_activity_web" >
         </activity>
-        <activity
-            android:name="com.mozidev.firstproject.BrActivity"
-            android:label="@string/title_activity_br" >
-        </activity>
+
     </application>
 
 </manifest>
