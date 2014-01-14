@@ -4,18 +4,20 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" android:padding="4dp">
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/etScheme"
+        android:text="@string/scheme"
+        android:padding="4dp">
+    </EditText>
     <Button
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/btnTop"
-        android:text="@string/btn1" android:padding="2dp">
-    </Button>
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/btnBot"
-        android:text="@string/web">
+        android:id="@+id/ok"
+        android:text="@string/ok"
+        android:padding="4dp">
     </Button>
 </LinearLayout>

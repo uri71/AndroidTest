@@ -13,5 +13,15 @@
     <string name="editTextBottom">И здесь введите текст</string>
     <string name="buttonFM">Нажмите кнопку</string>
     <string name="title_activity_info.java">Info.java</string>
+    <string name="btn1">1</string>
+    <string name="web">WEB</string>
+    <string name="title_activity_two">TwoActivity</string>
+    <string name="etTop">Введите текст</string>
+    <string name="etBot">И здесь тоже</string>
+    <string name="press">PRESS</string>
+    <string name="title_activity_web">WebActivity</string>
+    <string name="scheme">http://</string>
+    <string name="ok">OK</string>
+    <string name="title_activity_br">BrActivity</string>
 
 </resources>
