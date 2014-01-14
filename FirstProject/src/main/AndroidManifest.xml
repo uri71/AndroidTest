@@ -39,10 +39,7 @@
             android:name="com.mozidev.firstproject.WebActivity"
             android:label="@string/title_activity_web" >
         </activity>
-        <activity
-            android:name="com.mozidev.firstproject.BrActivity"
-            android:label="@string/title_activity_br" >
-        </activity>
+
     </application>
 
 </manifest>

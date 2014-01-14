@@ -35,7 +35,7 @@ public class TwoActivity extends Activity implements View.OnClickListener {
         String str = "";
         str = etTop.getText().toString()+etBot.getText().toString();
         if (str.equals("")) {
-            Toast.makeText(this, "Введите текст", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Введите текст", Toast.LENGTH_LONG).show();
 
         }
         else tv.setText(str);

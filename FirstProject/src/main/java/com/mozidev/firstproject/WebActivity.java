@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-class WebActivity extends Activity implements View.OnClickListener {
+public  class WebActivity extends Activity implements View.OnClickListener {
     Button ok;
     EditText etScheme;
     String uri;
@@ -31,10 +31,10 @@ class WebActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        if (!uri.startsWith("http://")) {
+        if (!(uri.startsWith("http://"))) {
             Toast.makeText(this, "Введите текст", Toast.LENGTH_SHORT).show();
         } else {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("google.com")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uri)));
         }
     }
 }
