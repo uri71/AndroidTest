@@ -3,27 +3,16 @@
 
     <string name="app_name">FirstProject</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="hello_world">Edit Text</string>
     <string name="action_settings">Settings</string>
     <string name="menu_settings">Settings</string>
-    <string name="edit_message">Введите сообщение</string>
-    <string name="button_send">LABEL</string>
-    <string name="TextViewFM">Текст</string>
-    <string name="editTextTop">Введите текст</string>
-    <string name="editTextBottom">И здесь введите текст</string>
-    <string name="buttonFM">Нажмите кнопку</string>
-    <string name="title_activity_info.java">Info.java</string>
     <string name="btn1">1</string>
     <string name="web">WEB</string>
     <string name="title_activity_two">TwoActivity</string>
     <string name="etTop">ENTER TEXT</string>
-
     <string name="press">GO</string>
     <string name="title_activity_web">WebActivity</string>
     <string name="scheme">http://</string>
     <string name="ok">GO</string>
-    <string name="title_activity_br">BrActivity</string>
-    <string name="toast_web">Введите адрес пра</string>
     <string name="resultLabelDescription">Your full name: </string>
 
 </resources>
