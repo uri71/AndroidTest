@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" android:padding="4dp">
-    <EditText
+    android:orientation="vertical"
+    android:padding="4dp" android:id="@+id/fragment_container">
+
+    <fragment
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/etScheme"
-        android:text="@string/scheme"
-        android:padding="4dp">
-    </EditText>
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/ok"
-        android:text="@string/ok"
-        android:padding="4dp">
-    </Button>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        class="com.mozidev.firstproject.WebFragment"
+        tools:layout="@layout/fragment_web" />
+
+</FrameLayout>

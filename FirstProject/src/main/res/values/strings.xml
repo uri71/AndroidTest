@@ -16,12 +16,14 @@
     <string name="btn1">1</string>
     <string name="web">WEB</string>
     <string name="title_activity_two">TwoActivity</string>
-    <string name="etTop">Введите текст</string>
-    <string name="etBot">И здесь тоже</string>
-    <string name="press">PRESS</string>
+    <string name="etTop">ENTER TEXT</string>
+
+    <string name="press">GO</string>
     <string name="title_activity_web">WebActivity</string>
     <string name="scheme">http://</string>
-    <string name="ok">OK</string>
+    <string name="ok">GO</string>
     <string name="title_activity_br">BrActivity</string>
+    <string name="toast_web">Введите адрес пра</string>
+    <string name="resultLabelDescription">Your full name: </string>
 
 </resources>

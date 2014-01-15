@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mozidev.firstproject.TwoActivity"
+            android:name=".SecondActivity"
             android:label="@string/title_activity_two" >
         </activity>
         <activity

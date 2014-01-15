@@ -2,14 +2,12 @@ package com.mozidev.firstproject;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity  extends Activity implements View.OnClickListener {
-    Button btnTop;
-    Button btnBot;
+public class MainActivity extends Activity implements View.OnClickListener {
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,18 +19,22 @@ public class MainActivity  extends Activity implements View.OnClickListener {
         btnTop.setOnClickListener(this);
         btnBot.setOnClickListener(this);
 
-           }
+    }
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+        Class<? extends Activity> target;
+        switch (v.getId()) {
             case R.id.btnTop:
-                startActivity(new Intent(this, TwoActivity.class));
+                target = SecondActivity.class;
                 break;
-            case R.id.btnBot:
-                startActivity(new Intent(this, WebActivity.class));
+            default:
+                target = WebActivity.class;
                 break;
         }
+
+        Intent intent = new Intent(MainActivity.this, target);
+        startActivity(intent);
     }
 }
 
