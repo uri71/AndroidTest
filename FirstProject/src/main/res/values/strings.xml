@@ -14,5 +14,7 @@
     <string name="scheme">http://</string>
     <string name="ok">GO</string>
     <string name="resultLabelDescription">Your full name: </string>
+    <string name="resultLabelDescription">Your full name: </string>
+    <string name="resultLabelDescription">Your full name: </string>
 
 </resources>
