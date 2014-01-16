@@ -8,7 +8,6 @@ import android.widget.Button;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -21,7 +20,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
-    @Override
     public void onClick(View v) {
         Class<? extends Activity> target;
         switch (v.getId()) {

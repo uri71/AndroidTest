@@ -19,4 +19,5 @@
         android:layout_weight="1"
         android:id="@+id/btnBot"
         android:text="@string/web"/>
+
 </LinearLayout>

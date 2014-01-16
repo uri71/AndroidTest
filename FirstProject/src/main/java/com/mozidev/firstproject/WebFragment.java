@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,6 +23,7 @@ public class WebFragment extends Fragment implements View.OnClickListener {
 
     private Button ok;
     private EditText etScheme;
+    WebView mWebView;
 
     public WebFragment() {
         super();
@@ -27,6 +32,11 @@ public class WebFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_web, container, false);
+
+
+
+
+
     }
 
     @Override
@@ -35,6 +45,10 @@ public class WebFragment extends Fragment implements View.OnClickListener {
 
         ok = (Button) view.findViewById(R.id.ok);
         ok.setOnClickListener(this);
+
+        mWebView = (WebView) view.findViewById(R.id.webview);
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.setWebViewClient(new HelloWebViewClient());
 
         etScheme = (EditText) view.findViewById(R.id.etScheme);
     }
@@ -47,7 +61,28 @@ public class WebFragment extends Fragment implements View.OnClickListener {
             Toast.makeText(getActivity(), "ERROR ADRESS", Toast.LENGTH_SHORT).show();
 
         } else {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uri)));
+            // указываем страницу загрузки
+            mWebView.loadUrl(uri);
+            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uri)));
+        }
+    }
+
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
+            mWebView.goBack();
+            return true;
+        }
+        return getActivity().onKeyDown(keyCode, event);
+    }
+
+    private class HelloWebViewClient extends WebViewClient
+    {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url)
+        {
+            view.loadUrl(url);
+            return true;
         }
     }
 }

@@ -19,8 +19,8 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etLastName"
-        android:hint="@string/etTop"
+		android:id="@+id/etLastName"
+		android:hint="@string/etTop"
         android:padding="4dp" />
 
     <Button

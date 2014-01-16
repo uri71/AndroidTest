@@ -12,5 +12,4 @@
         android:layout_weight="1"
         class="com.mozidev.firstproject.SecondFragment"
         tools:layout="@layout/fragment_two"/>
-
 </LinearLayout>
