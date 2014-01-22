@@ -39,8 +39,7 @@ public class FragmAdapter extends Fragment {
         int load[] = { 41, 48, 22, 35, 30, 67, 51, 88 };
 
         // упаковываем данные в понятную для адаптера структуру
-        ArrayList<Map<String, Object>> data = new ArrayList<Map<String, Object>>(
-                load.length);
+        ArrayList<Map<String, Object>> data = new ArrayList<Map<String, Object>>(load.length);
 
         Map<String, Object> m;
 
@@ -101,6 +100,7 @@ public class FragmAdapter extends Fragment {
 
                     i = ((Integer) data).intValue();
                     ((ProgressBar)view).setProgress(i);
+
                     return true;
             }
             return false;

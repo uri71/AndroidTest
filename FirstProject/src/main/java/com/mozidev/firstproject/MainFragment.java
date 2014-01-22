@@ -37,6 +37,11 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
         Button countries = (Button) view.findViewById(R.id.countries);
         countries.setOnClickListener(this);
+
+        Button simpleAdapter = (Button) view.findViewById(R.id.simpleAdapter);
+        simpleAdapter.setOnClickListener(this);
+
+
     }
 
     @Override
