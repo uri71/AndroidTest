@@ -41,6 +41,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         Button simpleAdapter = (Button) view.findViewById(R.id.simpleAdapter);
         simpleAdapter.setOnClickListener(this);
 
+        Button longList = (Button) view.findViewById(R.id.longList);
+        longList.setOnClickListener(this);
+
 
     }
 
@@ -59,6 +62,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
             case R.id.simpleAdapter:
                 target = SimplAdapter.class;
+                break;
+
+            case R.id.longList:
+                target = LongListActivity.class;
                 break;
 
             default:

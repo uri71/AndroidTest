@@ -20,5 +20,10 @@
     <string name="empty">Empty</string>
     <string name="simpleAdapter">simpleAdapter</string>
     <string name="title_activity_simpladapter">Simple_Adapter</string>
+    <string name="etFrAdVal">Введите процент от 0 до 100</string>
+    <string name="title_activity_test"> Long List </string>
+    <string name="hello_world">Hello world!</string>
+    <string name="longList">Long List</string>
+    <string name="title_activity_a">a</string>
 
 </resources>

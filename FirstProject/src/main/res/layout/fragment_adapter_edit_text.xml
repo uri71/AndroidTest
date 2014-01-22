@@ -4,4 +4,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etFrAdVal"
+        android:hint="@string/etFrAdVal"
+        android:padding="4dp" />
+
 </LinearLayout>

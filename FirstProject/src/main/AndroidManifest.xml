@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mozidev.firstproject"
-    android:versionCode="5"
-    android:versionName="0.0.005" >
+    android:versionCode="6"
+    android:versionName="0.0.006" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -40,7 +40,14 @@
             android:name="com.mozidev.firstproject.SimplAdapter"
             android:label="@string/title_activity_simpladapter" >
         </activity>
-
+        <activity
+            android:name="com.mozidev.firstproject.LongListActivity"
+            android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name="com.mozidev.firstproject.a"
+            android:label="@string/title_activity_a" >
+        </activity>
     </application>
 
 </manifest>
