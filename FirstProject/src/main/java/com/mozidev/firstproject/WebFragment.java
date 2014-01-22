@@ -33,18 +33,11 @@ public class WebFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_web, container, false);
 
-
-
-
-
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        ok = (Button) view.findViewById(R.id.ok);
-        ok.setOnClickListener(this);
 
         mWebView = (WebView) view.findViewById(R.id.webview);
         mWebView.getSettings().setJavaScriptEnabled(true);
@@ -63,18 +56,18 @@ public class WebFragment extends Fragment implements View.OnClickListener {
         } else {
             // указываем страницу загрузки
             mWebView.loadUrl(uri);
-            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(uri)));
+
         }
     }
 
 
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    /*public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
             mWebView.goBack();
             return true;
         }
         return getActivity().onKeyDown(keyCode, event);
-    }
+    }*/
 
     private class HelloWebViewClient extends WebViewClient
     {

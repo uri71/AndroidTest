@@ -14,15 +14,6 @@
         android:padding="4dp"
         android:inputType="textUri" />
 
-    <!--android:inputMethod=""-->
-
-    <!--<Button-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="44dp"-->
-        <!--android:id="@+id/ok"-->
-        <!--android:text="@string/ok"-->
-        <!--android:padding="4dp"/>-->
-
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"

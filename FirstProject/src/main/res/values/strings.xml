@@ -14,7 +14,11 @@
     <string name="scheme">http://</string>
     <string name="ok">GO</string>
     <string name="resultLabelDescription">Your full name: </string>
-    <string name="resultLabelDescription">Your full name: </string>
-    <string name="resultLabelDescription">Your full name: </string>
+    <string name="countries"> Countries </string>
+    <string name="title_activity_countries">CountriesActivity</string>
+    <string name="number_list">Countries</string>
+    <string name="empty">Empty</string>
+    <string name="simpleAdapter">simpleAdapter</string>
+    <string name="title_activity_simpladapter">Simple_Adapter</string>
 
 </resources>
