@@ -12,9 +12,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by y.storchak on 1/20/14.
- */
 public class CountriesFragment extends ListFragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

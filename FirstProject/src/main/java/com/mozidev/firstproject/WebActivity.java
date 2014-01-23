@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentActivity;
 
 public class WebActivity extends FragmentActivity {
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
 

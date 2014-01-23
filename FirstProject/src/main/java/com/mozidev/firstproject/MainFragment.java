@@ -8,11 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.SimpleAdapter;
 
-/**
- * Created by y.storchak on 1/15/14.
- */
 public class MainFragment extends Fragment implements View.OnClickListener {
 
     public MainFragment() {
@@ -22,7 +18,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_main, container, false);
-
     }
 
     @Override
@@ -38,13 +33,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         Button countries = (Button) view.findViewById(R.id.countries);
         countries.setOnClickListener(this);
 
-        Button simpleAdapter = (Button) view.findViewById(R.id.simpleAdapter);
-        simpleAdapter.setOnClickListener(this);
-
         Button longList = (Button) view.findViewById(R.id.longList);
         longList.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -60,10 +50,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 target = CountriesActivity.class;
                 break;
 
-            case R.id.simpleAdapter:
-                target = SimplAdapter.class;
-                break;
-
             case R.id.longList:
                 target = LongListActivity.class;
                 break;
@@ -73,10 +59,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 break;
 
         }
-
             Intent intent = new Intent(getActivity(), target);
             getActivity().startActivity(intent);
-
     }
-
 }

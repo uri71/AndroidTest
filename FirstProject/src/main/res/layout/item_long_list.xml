@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:id="@+id/llItemLL"
     android:background="@color/Green">
 
     <LinearLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:gravity="center"
-            android:id="@+id/tvItemLL1"
-        />
+            android:id="@+id/tvItemLL1"/>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_gravity="left"
-            android:id="@+id/ivItemLL"
-            />
+            android:id="@+id/ivItemLL"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/tvItemLL2"
-            />
+            android:id="@+id/tvItemLL2"/>
+
     </LinearLayout>
 
 </LinearLayout>

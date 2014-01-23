@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentActivity;
 
 public class CountriesActivity extends FragmentActivity {
 
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
