@@ -7,7 +7,7 @@
     tools:ignore="MergeRootFrame" >
 
     <fragment
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         class="com.mozidev.firstproject.CountriesFragment"
         tools:layout="@layout/fragment_countries" />

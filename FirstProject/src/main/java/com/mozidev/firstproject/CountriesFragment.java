@@ -1,11 +1,13 @@
 package com.mozidev.firstproject;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,9 +35,39 @@ public class CountriesFragment extends ListFragment {
         }
         Collections.sort(countries);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+        MyArAdapter<String> adapter = new MyArAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, countries);
         setListAdapter(adapter);
     }
+}
+
+    class MyArAdapter <String> extends ArrayAdapter {
+        private LayoutInflater inflater;
+        private List<String> countres;
+
+    public MyArAdapter (Context context,  int resource, List<String> countres){
+        super(context, resource, countres);
+        inflater = LayoutInflater.from(context);
+        this.countres = countres;
+
+    }
+    public View getView (int position, View convertView, ViewGroup parent){
+        View v = convertView;
+
+        if (v == null) {
+            v = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+        }
+
+        TextView text1 = (TextView)v.findViewById(android.R.id.text1);
+        text1.setText(countres.get(position).toString());
+
+        if (position%2==0 ){
+        text1.setBackgroundColor(0x0f0f0f);
+        }
+        else text1.setBackgroundColor(0x1a1a1a);
+
+    return v;
+    }
+
 }
 

@@ -2,22 +2,20 @@ package com.mozidev.firstproject;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 
-public class LongListActivity extends FragmentActivity{
+public class LongListActivity extends FragmentActivity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,18 +27,8 @@ public class LongListActivity extends FragmentActivity{
                 .commit();
     }
 
-    public static class LongListFragment extends Fragment { //почему выдает ошибку при изменениии класса на ListFragment?
+    public class LongListFragment extends ListFragment {
 
-        //ИМЕЕТ ЛИ СМЫСЛ СОЗДАВАТЬ ЭТИ КОНСТАНТЫ ИЛИ МОЖНО УКАЗЫВАТЬ KEYS В HASHMAP НЕПОСРЕДСТВЕННО?
-        private final String ATTRIBUTE_NAME_TV1 = "text1";
-        private final String ATTRIBUTE_NAME_IV = "image";
-        private final String ATTRIBUTE_NAME_TV2 = "text2";
-
-        private String str= "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" ;
-        private Map<String, Object> item = new HashMap<String, Object>();
-        private ArrayList<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
-        private ListView lv_container;
-        private ArrayAdapter myAdapter;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,74 +36,109 @@ public class LongListActivity extends FragmentActivity{
 
             View view = inflater.inflate(R.layout.fragment_long_list, container, false);
 
-            lv_container = (ListView) view.findViewById(R.id.frLVLongList);
             return view;
         }
 
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
+            String str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, " +
+                    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
+
+            List<Item> items = new ArrayList<Item>();
             for (int i = 0; i < 199; i++) {
 
-                item.put(ATTRIBUTE_NAME_TV1, "TITLE " + (i+1));
-                item.put(ATTRIBUTE_NAME_IV, R.drawable.ic_launcher);
-                item.put(ATTRIBUTE_NAME_TV2, str);
-
-                data.add(item);
+                items.add(new Item(R.drawable.ic_launcher, str, "TITLE " + (i + 1)));
             }
 
-            myAdapter = new MyArrayAdapter(getActivity(), R.layout.item_long_list, data);
-            lv_container.setAdapter(myAdapter);
+            MyArrayAdapter adapter = new MyArrayAdapter(getActivity(), R.layout.item_long_list, items);
+            setListAdapter(adapter);
         }
 
-        public class MyArrayAdapter extends ArrayAdapter  {
+        private final class MyArrayAdapter extends ArrayAdapter {
 
-            private Context context;
-            private ArrayList<Map<String, Object>> data;
-            private Map<String, Object> item;
-            private LayoutInflater lInflater;
-            private int resource;
+            private List<Item> items;
+            private LayoutInflater inflater;
 
-            public MyArrayAdapter (Context context, int resource, ArrayList<Map<String, Object>> data) {
+            public MyArrayAdapter(Context context, int resource, List<Item> data) {
 
-                // ПОЧЕМУ ТРЕБУЕТСЯ ВЫЗОВ КОНСТРУКТОРА СУПЕРКЛАССА?
-                // ЧТО ЗА ПРЕДУПРЕЖДЕНИЕ ВЫДАЕТСЯ ПРИ ВЫЗОВЕ КОНСТРУКТОРА СУПЕРКЛАССА?
                 super(context, resource, data);
 
-                this.context = context;
-                this.data = data;
-                this.resource = resource;
-                lInflater = getActivity().getLayoutInflater();// ПОЧЕМУ ВМЕСТО getActivity() МЫ НЕ МОЖЕМ ИСПОЛЬЗОВАТЬ ПЕРЕМЕННУЮ context?
+                this.items = data;
+                inflater = LayoutInflater.from(context);
             }
+
             @Override
-            public int getCount(){
-                return data.size();
+            public int getCount() {
+                return items.size();
             }
+
             @Override
-            public Map<String, Object> getItem (int position){
-                return data.get(position);
+            public Item getItem(int position) {
+                return items.get(position);
             }
 
-            public View getView (int position, View convertview, ViewGroup parent){
+            public View getView(int position, View convertView, ViewGroup parent) {
 
-                View v = convertview;
+                View v = convertView;
 
-                if (v == null){
-                    v = lInflater.inflate(resource, parent, false);
+                if (v == null) {
+                    v = inflater.inflate(R.layout.item_long_list, parent, false);
                 }
 
-                item = data.get(position);
+                Item item = items.get(position);
 
-                String text1 = item.get("text1").toString();
-                String text2 = item.get("text2").toString();
-                Integer image = (Integer)item.get("image");
+                String text1 = item.getName();
+                String text2 = item.getDescription();
+                int image = item.getIconRes();
 
-                ((TextView)v.findViewById(R.id.tvItemLL1)).setText(text1);
-                ((ImageView)v.findViewById(R.id.ivItemLL)).setImageResource(image);
-                ((TextView)v.findViewById(R.id.tvItemLL2)).setText(text2);
+                TextView tvItemLL1 = (TextView) v.findViewById(R.id.tvItemLL1);
+                tvItemLL1.setText(text1);
+
+                ImageView ivItemLL = (ImageView) v.findViewById(R.id.ivItemLL);
+                ivItemLL.setImageResource(image);
+
+                TextView tvItemLL2 = (TextView) v.findViewById(R.id.tvItemLL2);
+                tvItemLL2.setText(text2);
 
                 return v;
             }
+        }
+    }
+
+    public class Item {
+        private String name;
+        private String description;
+        private int iconRes;
+
+        public Item(int iconRes, String description, String name) {
+            this.iconRes = iconRes;
+            this.description = description;
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public int getIconRes() {
+            return iconRes;
+        }
+
+        public void setIconRes(int iconRes) {
+            this.iconRes = iconRes;
         }
     }
 }
