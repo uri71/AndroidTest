@@ -1,11 +1,11 @@
 package com.mozidev.firstproject;
 
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
 
-public class WebActivity extends FragmentActivity {
+public class WebActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

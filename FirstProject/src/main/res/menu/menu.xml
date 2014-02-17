@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_settings"
+        android:title="@string/menu_setting"
+        android:showAsAction="always"/>
+
+    <item android:id="@+id/item1"
+        android:title="@string/item1"
+        android:showAsAction="ifRoom"
+        android:icon="@android:drawable/btn_star"/>
+
+    <item android:id="@+id/item2"
+        android:title="@string/item2"
+        android:showAsAction="collapseActionView"
+        android:icon="@android:drawable/alert_dark_frame"/>
+
+    <item android:id="@+id/item3"
+        android:title="@string/item3"
+        android:showAsAction="withText"
+        android:icon="@android:drawable/btn_star"/>
+
+    <item android:id="@+id/item4"
+        android:title="@string/item4"
+        android:showAsAction="never"
+        android:icon="@android:drawable/alert_light_frame"/>
+
+</menu>

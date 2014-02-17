@@ -25,5 +25,15 @@
     <string name="hello_world">Hello world!</string>
     <string name="longList">Long List</string>
     <string name="title_activity_a">a</string>
+    <string name="menu_setting">Setting</string>
+    <string name="item1">Item1</string>
+    <string name="item2">Item2</string>
+    <string name="item3">Item3</string>
+    <string name="item4">Item4</string>
+    <string name="locales">Locales</string>
+    <string name="title_activity_locales">LocalesActivity</string>
+    <string name="inf_on_country">Information on the country</string>
+    <string name="select_country">Select the country</string>
+    <string name="display_locales_activity">DisplayLocalesActivity</string>
 
 </resources>

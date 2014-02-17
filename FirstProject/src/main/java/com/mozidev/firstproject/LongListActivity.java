@@ -1,7 +1,12 @@
 package com.mozidev.firstproject;
 
+
+
+
+
 import android.content.Context;
 import android.os.Bundle;
+
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -29,6 +34,9 @@ public class LongListActivity extends FragmentActivity {
 
     public class LongListFragment extends ListFragment {
 
+        public LongListFragment() {
+
+        }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,

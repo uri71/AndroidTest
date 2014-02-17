@@ -1,6 +1,8 @@
 package com.mozidev.firstproject;
 
+
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -62,9 +64,9 @@ public class CountriesFragment extends ListFragment {
         text1.setText(countres.get(position).toString());
 
         if (position%2==0 ){
-        text1.setBackgroundColor(0x0f0f0f);
+        text1.setBackgroundColor(Color.BLUE);
         }
-        else text1.setBackgroundColor(0x1a1a1a);
+        else text1.setBackgroundColor(Color.GRAY);
 
     return v;
     }

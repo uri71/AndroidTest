@@ -1,9 +1,9 @@
 package com.mozidev.firstproject;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
-public class CountriesActivity extends FragmentActivity {
+public class CountriesActivity extends Activity {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

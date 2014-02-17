@@ -6,12 +6,20 @@
     android:orientation="vertical"
     android:padding="4dp">
 
-    <fragment
+   <fragment
         class="com.mozidev.firstproject.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="5"
         tools:layout="@layout/fragment_main"
         android:tag="fragment_main"/>
+
+    <TextView
+        android:id="@+id/context_menu"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/black"
+        />
 
 </FrameLayout>

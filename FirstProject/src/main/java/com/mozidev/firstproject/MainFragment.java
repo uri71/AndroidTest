@@ -1,6 +1,7 @@
 package com.mozidev.firstproject;
 
 import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -35,6 +36,13 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
         Button longList = (Button) view.findViewById(R.id.longList);
         longList.setOnClickListener(this);
+
+        Button locales = (Button) view.findViewById(R.id.locales);
+        locales.setOnClickListener(this);
+
+
+
+
     }
 
     @Override
@@ -52,6 +60,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
             case R.id.longList:
                 target = LongListActivity.class;
+                break;
+
+            case R.id.locales:
+                target = LocalesActivity.class;
                 break;
 
             default:
