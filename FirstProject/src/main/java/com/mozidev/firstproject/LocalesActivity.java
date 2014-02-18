@@ -9,13 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class LocalesActivity extends FragmentActivity {
+public class  LocalesActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,23 +45,38 @@ public class LocalesActivity extends FragmentActivity {
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-             Locale[] locales = Locale.getAvailableLocales();
+            Locale[] locales = Locale.getAvailableLocales();
 
+            Item item;
+            Integer [] imgRes = {android.R.drawable.star_big_on,
+                                android.R.drawable.btn_minus,
+                                android.R.drawable.btn_plus,
+                                android.R.drawable.btn_radio};
+            int i = 0;
             for (Locale locale : locales) {
 
                 String country = locale.getDisplayCountry();
                 String code = locale.getCountry();
-                Item item = new Item (country, code);
 
-                if (country.trim().length() > 0 && !displayCountries.contains(item)) {
+                if (country.trim().length() > 0) {
 
-                    displayCountries.add(item);
+                    if (i<=3){
+                        item = new Item (country, code, imgRes[i]);
+                    }
+                    else {
+                        item = new Item(country, code, imgRes[i%4]);
+                    }
+
+                    i++;
+
+                    if (!displayCountries.contains(item)) {
+                        displayCountries.add(item);
+                    }
                 }
             }
-            //Collections.sort(displayCountries); -  как можно отсортировать массив?
 
             CountresAdapter adapter = new CountresAdapter (getActivity(),
-                    android.R.layout.simple_list_item_1, displayCountries);
+                    R.layout.item_long_list, displayCountries);
             setListAdapter(adapter);
 
         }
@@ -69,8 +85,15 @@ public class LocalesActivity extends FragmentActivity {
 
             Intent intent = new Intent (getActivity(), DisplayLocalesActivity.class);
 
-            String nameCountry = displayCountries.get(position).getName();
-            intent.putExtra ("LOCAL", nameCountry);
+            String str = "Lorem ipsum dolor sit amet, consectetur adipisicing elit \n " +
+                    "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
+
+            //String nameCountry = displayCountries.get(position).getName();
+            Integer imgRes = displayCountries.get(position).getImg();
+
+            intent.putExtra ("LOCAL_NAME", str);
+            intent.putExtra("IMG", imgRes);
+
             startActivity(intent);
 
         }
@@ -87,16 +110,22 @@ public class LocalesActivity extends FragmentActivity {
 
         }
         public View getView (int position, View convertView, ViewGroup parent){
+
             View v = convertView;
+
             Item item =  displayCountries.get(position);
-            String dataCountry = item.getName() + "/n"+ item.getCode();
+            Integer imgRes = item.getImg();
+
+            String dataCountry = item.getName() + "\n"+ item.getCode();
 
             if (v == null) {
-                v = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+                v = inflater.inflate(R.layout.item_long_list, parent, false);
             }
 
-            TextView text1 = (TextView)v.findViewById(android.R.id.text1);
+            ImageView img = (ImageView)v.findViewById(R.id.ivItemLL);
+            TextView text1 = (TextView)v.findViewById(R.id.tvItemLL2);
 
+            img.setImageResource(imgRes);
             text1.setText(dataCountry);
 
             return v;
@@ -107,11 +136,13 @@ public class LocalesActivity extends FragmentActivity {
     public class Item {
         private String country;
         private String code;
+        private int imgRes;
 
-        public Item(String country, String code) {
+        public Item(String country, String code, int imgRes) {
 
             this.code = code;
             this.country = country;
+            this.imgRes = imgRes;
         }
 
         public String getName() {
@@ -130,12 +161,16 @@ public class LocalesActivity extends FragmentActivity {
             this.code = code;
         }
 
-       /* public String toString() {
-            String str = country+"/n"+code;
-            return str;*/
+        public int getImg() {
+            return imgRes;
         }
 
+        public void setImg(Integer imgRes) {
+            this.imgRes = imgRes;
+        }
 
     }
+
+}
 
 

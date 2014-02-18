@@ -16,7 +16,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.apache.http.message.BasicListHeaderIterator;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 

@@ -5,37 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/llItemLL"
-    android:background="@color/Green">
-
-    <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:id="@+id/tvItemLL1"/>
-
-    </LinearLayout>
+    android:background="@color/Bckgr"
+    >
 
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal">
 
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:id="@+id/tvItemLL1"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/rlItem">
+
         <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_gravity="left"
-            android:id="@+id/ivItemLL"/>
+            android:id="@+id/ivItemLL"
+            android:layout_marginRight="5dp"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/tvItemLL2"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/tvItemLL2"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="100dp"
+            android:textSize="18dp"
+            android:textColor="@color/Black"
+            />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
