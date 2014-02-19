@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:text="@string/inf_on_country"
         android:gravity="center"
+        android:id="@+id/tv_country_name"
         android:textAlignment="center"
         android:textSize="30dp"
         android:padding="20dp"/>
@@ -17,7 +18,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="15dp">
+        android:padding="15dp"
+        android:isScrollContainer="true">
 
         <ImageView
             android:layout_height="wrap_content"
@@ -31,7 +33,11 @@
             android:layout_height="match_parent"
             android:id="@+id/tv_country_info"
             android:textAlignment="gravity"
-            android:textSize="24dp"/>
+            android:textSize="24dp"
+            android:scrollbars="vertical"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+
+            />
 
     </LinearLayout>
 

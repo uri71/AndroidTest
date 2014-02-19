@@ -16,12 +16,17 @@ public class DisplayLocalesActivity extends Activity {
         setContentView(R.layout.activity_display_locales);
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("LOCAL_NAME");
-        Integer imgRes = intent.getIntExtra("IMG", android.R.drawable.ic_delete);
+        String text = intent.getStringExtra("EXTRAS_TEXT");
+        String country = intent.getStringExtra("EXTRAS_COUNTRY");
+
+        Integer imgRes = intent.getIntExtra("EXTRAS_IMAGE_RESOURSE", android.R.drawable.ic_delete);
 
         TextView tv_country_info = (TextView) findViewById(R.id.tv_country_info);
+        TextView tv_country_name = (TextView) findViewById(R.id.tv_country_name);
         ImageView img = (ImageView) findViewById(R.id.ivImageRes);
-        tv_country_info.setText(name);
+
+        tv_country_name.setText(country);
+        tv_country_info.setText(text);
         img.setImageResource(imgRes);
     }
 }
