@@ -36,5 +36,6 @@
     <string name="select_country">Select the country</string>
     <string name="display_locales_activity">DisplayLocalesActivity</string>
     <string name="wait">Wait please</string>
+    <string name="lorem_ipsum">Sed nec orci nunc.</string>
 
 </resources>

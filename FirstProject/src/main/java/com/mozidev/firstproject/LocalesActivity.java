@@ -1,13 +1,19 @@
 package com.mozidev.firstproject;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -40,6 +46,9 @@ public class LocalesActivity extends FragmentActivity {
         final String EXTRAS_COUNTRY ="EXTRAS_COUNTRY";
         final String EXTRAS_TEXT ="EXTRAS_TEXT";
         final String EXTRAS_IMAGE_RESOURSE = "EXTRAS_IMAGE_RESOURSE";
+        NewAcyncTask task;
+        CountresAdapter adapter;
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -51,53 +60,89 @@ public class LocalesActivity extends FragmentActivity {
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-
-            Locale[] locales = Locale.getAvailableLocales();
-
-
-            List<Locale> localesList = Arrays.asList(locales);
-            Collections.sort(localesList, new Comparator<Locale>() {
-                @Override
-                public int compare(Locale locale, Locale locale2) {
-                    return locale.getDisplayName(Locale.ENGLISH).compareTo(locale2.getDisplayName(Locale.ENGLISH));
-                }
-            });
-
-
-            Integer[] imgRes = {R.drawable.ukraine,
-                    R.drawable.united_arab_emirates,
-                    R.drawable.united_kingdom,
-                    R.drawable.united_nations};
-            int i = 0;
-
-            ArrayList<Item> displayCountries = new ArrayList<Item>();
-            for (Locale locale : localesList) {
-                Item item;
-
-                String country = locale.getDisplayName(Locale.ENGLISH);
-                String code = "<No Code>";
-                try {
-                    code = locale.getDisplayCountry(Locale.ENGLISH);
-                } catch (MissingResourceException e) {
-                    e.printStackTrace();
-                }
-                if (i <= 3) {
-                    item = new Item(country, code, imgRes[i]);
-                } else {
-                    item = new Item(country, code, imgRes[i % 4]);
-                }
-
-                i++;
-
-                displayCountries.add(item);                                                                                //}
-            }
-
-            CountresAdapter adapter = new CountresAdapter(getActivity(),
-                    R.layout.item_long_list, displayCountries);
-            setListAdapter(adapter);
+            task= new NewAcyncTask();
+            task.execute();
 
         }
 
+        class NewAcyncTask extends AsyncTask<Void, Void, Void> {
+
+            ArrayList<Item> displayCountries;
+            ProgressDialog progressDialog;
+
+                                                                                /* protected NewTask (){
+                                                                                 };*/
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                progressDialog = ProgressDialog.show(getActivity(), null, "Please, wait..", true, false);
+
+                /*progressDialog =  new ProgressDialog (getActivity());
+                progressDialog.setTitle("Please, wait...");
+                progressDialog.show();*/
+            }
+
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                Locale[] locales = Locale.getAvailableLocales();
+
+                List<Locale> localesList = Arrays.asList(locales);
+                Collections.sort(localesList, new Comparator<Locale>() {
+                    @Override
+                    public int compare(Locale locale, Locale locale2) {
+                        return locale.getDisplayName(Locale.ENGLISH).compareTo(locale2.getDisplayName(Locale.ENGLISH));
+                    }
+                });
+
+                Integer[] imgRes = {R.drawable.ukraine,
+                        R.drawable.united_arab_emirates,
+                        R.drawable.united_kingdom,
+                        R.drawable.united_nations};
+
+                int i = 0;
+
+                displayCountries = new ArrayList<Item>();
+
+                for (Locale locale : localesList) {
+                    Item item;
+
+                    String country = locale.getDisplayName(Locale.ENGLISH);
+                    String code = "<No Code>";
+
+                    try {
+                        code = locale.getDisplayCountry(Locale.ENGLISH);
+                    } catch (MissingResourceException e) {
+                        e.printStackTrace();
+                    }
+
+                    if (i <= 3) {
+                        item = new Item(country, code, imgRes[i]);
+                    } else {
+                        item = new Item(country, code, imgRes[i % 4]);
+                    }
+
+                    i++;
+
+                    displayCountries.add(item);                                                                                //}
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                super.onPostExecute(result);
+
+                adapter = new CountresAdapter(getActivity(),
+                        R.layout.item_long_list, displayCountries);
+                setListAdapter(adapter);
+
+                progressDialog.dismiss();
+                progressDialog = null;
+
+            }
+        }
 
         @Override
         public void onListItemClick(ListView l, View v, int position, long id) {
@@ -105,17 +150,7 @@ public class LocalesActivity extends FragmentActivity {
 
             Intent intent = new Intent(getActivity(), DisplayLocalesActivity.class);
 
-            String str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                    "Cras tincidunt faucibus enim eu vestibulum. Pellentesque habitant morbi tristique " +
-                    "senectus et netus et malesuada fames ac turpis egestas. Etiam lobortis in felis ullamcorper blandit. " +
-                    "Quisque imperdiet tincidunt mi, ac faucibus purus blandit sed. Vestibulum ut lorem dignissim, " +
-                    "placerat neque a, suscipit dui. Mauris porta dictum orci et feugiat. Etiam pulvinar elit sed vulputate egestas. " +
-                    "Maecenas pharetra faucibus porta. Nam vitae massa diam. " +
-                    "Nulla sagittis suscipit lectus, in aliquet sapien mollis quis. " +
-                    "Mauris sodales, magna eu malesuada varius, odio massa hendrerit urna, eu viverra erat diam eu massa. " +
-                    "Cras libero urna, hendrerit quis felis sit amet, faucibus mattis magna. " +
-                    "Nulla facilisis vehicula suscipit. Etiam sollicitudin tristique feugiat. " +
-                    "Sed nec orci nunc.";
+            String str = getString(R.string.lorem_ipsum);
 
             LocalesActivity.Item item = (LocalesActivity.Item) getListAdapter().getItem(position);
 
@@ -128,6 +163,38 @@ public class LocalesActivity extends FragmentActivity {
 
             startActivity(intent);
         }
+
+        AdapterView.OnItemLongClickListener itemLongClickListener = new AdapterView.OnItemLongClickListener() {
+            private Item selectedItem;
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedItem = (Item)adapterView.getItemAtPosition(i);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+                builder.setMessage("Delete?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick (DialogInterface dialog, int wich){
+                    adapter.remove(selectedItem);
+                    adapter.notifyDataSetChanged();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick (DialogInterface dialog, int wich){
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+
+                return false;
+            }
+        };
     }
 
     class CountresAdapter extends ArrayAdapter {
