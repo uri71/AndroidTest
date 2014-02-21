@@ -36,6 +36,17 @@
     <string name="select_country">Select the country</string>
     <string name="display_locales_activity">DisplayLocalesActivity</string>
     <string name="wait">Wait please</string>
-    <string name="lorem_ipsum">Sed nec orci nunc.</string>
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        In ligula diam, vulputate non nisi a, rutrum convallis nibh.
+        Mauris a sem et metus scelerisque interdum. Nam vel magna odio.
+        Proin porttitor imperdiet sem et tincidunt.
+        Nulla massa ligula, bibendum at consectetur in, euismod id nibh.
+        Fusce id massa tempus enim venenatis sodales.
+        Sed eu mauris sed nibh tempor hendrerit.
+        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </string>
+    <string name="add">ADD</string>
+    <string name="delete">delete</string>
 
 </resources>

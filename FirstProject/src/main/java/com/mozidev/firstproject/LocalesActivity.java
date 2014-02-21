@@ -1,16 +1,16 @@
 package com.mozidev.firstproject;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
+import android.support.v7.internal.widget.AdapterViewICS;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -41,18 +41,21 @@ public class LocalesActivity extends FragmentActivity {
         }
     }
 
-
     public class LocalesFragment extends ListFragment {
         final String EXTRAS_COUNTRY ="EXTRAS_COUNTRY";
         final String EXTRAS_TEXT ="EXTRAS_TEXT";
         final String EXTRAS_IMAGE_RESOURSE = "EXTRAS_IMAGE_RESOURSE";
         NewAcyncTask task;
+
         CountresAdapter adapter;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_locales, container, false);
+
+            registerForContextMenu(rootView.findViewById(android.R.id.list));
+
             return rootView;
 
         }
@@ -62,7 +65,32 @@ public class LocalesActivity extends FragmentActivity {
 
             task= new NewAcyncTask();
             task.execute();
+        }
 
+        @Override
+        public void onCreateContextMenu (ContextMenu menu, View v,ContextMenu.ContextMenuInfo menuInfo) {
+            super.onCreateContextMenu(menu, v, menuInfo);
+            getMenuInflater().inflate(R.menu.fragment_locales_context_menu, menu);
+        }
+
+        public boolean onContextItemSelected(MenuItem item) {
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item
+                    .getMenuInfo();
+            Item myItem = (Item) getListView().getItemAtPosition(info.position);
+
+            switch (item.getItemId()) {
+
+                case R.id.add:
+                    adapter.remove(myItem);
+                    break;
+                case R.id.delete:
+                    adapter.add(new Item("Ukraine", "UA", R.drawable.ukraine));
+                    break;
+                default:
+                    return super.onContextItemSelected(item);
+            }
+            adapter.notifyDataSetChanged();
+            return true;
         }
 
         class NewAcyncTask extends AsyncTask<Void, Void, Void> {
@@ -70,16 +98,10 @@ public class LocalesActivity extends FragmentActivity {
             ArrayList<Item> displayCountries;
             ProgressDialog progressDialog;
 
-                                                                                /* protected NewTask (){
-                                                                                 };*/
-            @Override
+        @Override
             protected void onPreExecute() {
                 super.onPreExecute();
                 progressDialog = ProgressDialog.show(getActivity(), null, "Please, wait..", true, false);
-
-                /*progressDialog =  new ProgressDialog (getActivity());
-                progressDialog.setTitle("Please, wait...");
-                progressDialog.show();*/
             }
 
             @Override
@@ -138,16 +160,15 @@ public class LocalesActivity extends FragmentActivity {
                         R.layout.item_long_list, displayCountries);
                 setListAdapter(adapter);
 
+                                                                                                //getListView().setOnItemLongClickListener(itemLongClickListener);
+
                 progressDialog.dismiss();
                 progressDialog = null;
-
             }
         }
 
         @Override
         public void onListItemClick(ListView l, View v, int position, long id) {
-            super.onListItemClick(l, v, position, id);
-
             Intent intent = new Intent(getActivity(), DisplayLocalesActivity.class);
 
             String str = getString(R.string.lorem_ipsum);
@@ -164,37 +185,37 @@ public class LocalesActivity extends FragmentActivity {
             startActivity(intent);
         }
 
-        AdapterView.OnItemLongClickListener itemLongClickListener = new AdapterView.OnItemLongClickListener() {
-            private Item selectedItem;
+                                                                                                /*ListView.OnItemLongClickListener itemLongClickListener = new ListView.OnItemLongClickListener() {
+                                                                                                    private Item selectedItem;
 
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                selectedItem = (Item)adapterView.getItemAtPosition(i);
+                                                                                                    @Override
+                                                                                                    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                                                                                        selectedItem = (Item)adapterView.getItemAtPosition(i);
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                                                                                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-                builder.setMessage("Delete?");
+                                                                                                        builder.setMessage("Delete?");
 
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
-                    @Override
-                    public void onClick (DialogInterface dialog, int wich){
-                    adapter.remove(selectedItem);
-                    adapter.notifyDataSetChanged();
-                    }
-                });
+                                                                                                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+                                                                                                            @Override
+                                                                                                            public void onClick (DialogInterface dialog, int wich){
+                                                                                                            adapter.remove(selectedItem);
+                                                                                                            adapter.notifyDataSetChanged();
+                                                                                                            }
+                                                                                                        });
 
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener(){
-                    @Override
-                    public void onClick (DialogInterface dialog, int wich){
-                        dialog.cancel();
-                    }
-                });
+                                                                                                        builder.setNegativeButton("No", new DialogInterface.OnClickListener(){
+                                                                                                            @Override
+                                                                                                            public void onClick (DialogInterface dialog, int wich){
+                                                                                                                dialog.cancel();
+                                                                                                            }
+                                                                                                        });
 
-                builder.show();
+                                                                                                        builder.show();
 
-                return false;
-            }
-        };
+                                                                                                        return true;
+                                                                                                    }
+                                                                                                };*/
     }
 
     class CountresAdapter extends ArrayAdapter {
