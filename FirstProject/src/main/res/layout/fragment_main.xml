@@ -41,33 +41,16 @@
             android:id="@+id/longList"
             android:text="@string/longList"/>
 
-        <Button
+        <!--<Button
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:id="@+id/locales"
-            android:text="@string/locales"/>
+            android:text="@string/locales"/>-->
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:visibility="invisible"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/wait"
-        android:textAlignment="center"
-        android:textSize="25dp"/>
 
-    <ProgressBar
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:visibility="invisible"
-        android:layout_gravity="center_horizontal"
-
-        />
 
 
 </FrameLayout>

@@ -6,7 +6,6 @@
     android:id="@+id/container"
     tools:context="com.mozidev.firstproject.LocalesActivity$LocalesFragment">
 
-
     <TextView
         android:text="@string/select_country"
         android:layout_width="match_parent"
@@ -20,8 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="5dp"
-        >
-    </ListView>
+        />
 
     <TextView
         android:id="@id/android:empty"
@@ -29,9 +27,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="@string/empty"
-        android:singleLine="true">
-    </TextView>
-
-
+        android:singleLine="true"/>
 
 </LinearLayout>

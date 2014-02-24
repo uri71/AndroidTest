@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
-import android.support.v7.internal.widget.AdapterViewICS;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -49,13 +48,13 @@ public class LocalesActivity extends FragmentActivity {
 
         CountresAdapter adapter;
 
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_locales, container, false);
 
             registerForContextMenu(rootView.findViewById(android.R.id.list));
-
             return rootView;
 
         }
@@ -74,23 +73,25 @@ public class LocalesActivity extends FragmentActivity {
         }
 
         public boolean onContextItemSelected(MenuItem item) {
+
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item
                     .getMenuInfo();
+
             Item myItem = (Item) getListView().getItemAtPosition(info.position);
 
             switch (item.getItemId()) {
 
-                case R.id.add:
+                case R.id.delete:
                     adapter.remove(myItem);
                     break;
-                case R.id.delete:
+                case R.id.add:
                     adapter.add(new Item("Ukraine", "UA", R.drawable.ukraine));
                     break;
                 default:
                     return super.onContextItemSelected(item);
             }
             adapter.notifyDataSetChanged();
-            return true;
+            return super.onContextItemSelected(item);
         }
 
         class NewAcyncTask extends AsyncTask<Void, Void, Void> {

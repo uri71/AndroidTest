@@ -11,10 +11,6 @@ import android.widget.Button;
 
 public class MainFragment extends Fragment implements View.OnClickListener {
 
-    private Button btnTop, btnBot, countries, longList, locales;
-
-    private Class<? extends Activity> target;
-
     public MainFragment() {
         super();
     }
@@ -28,7 +24,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-         btnTop = (Button) view.findViewById(R.id.btnTop);
+        Button btnTop, btnBot, countries, longList, locales;
+
+        btnTop = (Button) view.findViewById(R.id.btnTop);
         btnTop.setOnClickListener(this);
 
          btnBot = (Button) view.findViewById(R.id.btnBot);
@@ -40,30 +38,31 @@ public class MainFragment extends Fragment implements View.OnClickListener {
          longList = (Button) view.findViewById(R.id.longList);
         longList.setOnClickListener(this);
 
-         locales = (Button) view.findViewById(R.id.locales);
-        locales.setOnClickListener(this);
+         /*locales = (Button) view.findViewById(R.id.locales);
+        locales.setOnClickListener(this);*/
 
     }
 
     @Override
     public void onClick(View v) {
 
+        Class<? extends Activity> target;
         switch (v.getId()) {
             case R.id.btnTop:
                 target = SecondActivity.class;
                 break;
 
             case R.id.countries:
-                target = CountriesActivity.class;
+                target = MyTabActivity.class;
                 break;
 
             case R.id.longList:
                 target = LongListActivity.class;
                 break;
 
-            case R.id.locales:
-                target = LocalesActivity.class;
-                break;
+            /*case R.id.locales:
+                target = MyTabActivity.class;
+                break;*/
 
             default:
                 target = WebActivity.class;

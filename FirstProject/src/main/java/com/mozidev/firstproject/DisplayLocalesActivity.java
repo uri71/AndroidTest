@@ -3,6 +3,7 @@ package com.mozidev.firstproject;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +22,7 @@ public class DisplayLocalesActivity extends Activity {
 
         Integer imgRes = intent.getIntExtra("EXTRAS_IMAGE_RESOURSE", android.R.drawable.ic_delete);
 
-        TextView tv_country_info = (TextView) findViewById(R.id.tv_country_info);
+        EditText tv_country_info = (EditText) findViewById(R.id.tv_country_info);
         TextView tv_country_name = (TextView) findViewById(R.id.tv_country_name);
         ImageView img = (ImageView) findViewById(R.id.ivImageRes);
 

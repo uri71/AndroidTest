@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mozidev.firstproject"
-    android:versionCode="13"
-    android:versionName="0.0.013">
+    android:versionCode="14"
+    android:versionName="0.0.014" >
 
     <uses-sdk
         android:minSdkVersion="7"
-        android:targetSdkVersion="19"/>
+        android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -47,7 +47,10 @@
             android:name="com.mozidev.firstproject.DisplayLocalesActivity"
             android:label="@string/display_locales_activity" >
         </activity>
-
+        <activity
+            android:name="com.mozidev.firstproject.MyTabActivity"
+            android:label="@string/title_activity_my_tab" >
+        </activity>
     </application>
 
 </manifest>
