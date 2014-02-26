@@ -47,5 +47,21 @@
     <string name="add">ADD</string>
     <string name="del">DELETE</string>
     <string name="title_activity_my_tab">MyTabActivity</string>
+    <string name="title_activity_test_view">TestView</string>
+    <string name="spinner1">Spinner1</string>
+    <string-array name="spinner1">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>For</item>
+        <item>Five</item>
+    </string-array>
+    <string-array name="spinner2">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>For</item>
+        <item>Five</item>
+    </string-array>
 
 </resources>

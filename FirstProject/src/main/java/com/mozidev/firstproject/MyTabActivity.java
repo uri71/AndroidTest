@@ -23,21 +23,6 @@ public class MyTabActivity extends ActionBarActivity implements ActionBar.TabLis
         mActionBar.addTab(tabDiscover2);
     }
 
-//        TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost);
-//        tabHost.setup();
-//
-//        TabHost.TabSpec tabSpec1 = tabHost.newTabSpec("1");
-//        tabSpec1.setIndicator("List of the Countries 1");
-//        tabSpec1.setContent(new Intent(this, CountriesActivity.class));
-//        tabHost.addTab(tabSpec1);
-//
-//        TabHost.TabSpec tabSpec2 = tabHost.newTabSpec("2");
-//        tabSpec2.setIndicator("List of the Countries 2");
-//        tabSpec2.setContent(new Intent(this, LocalesActivity.class));
-//        tabHost.addTab(tabSpec2);
-//
-//        tabHost.setCurrentTabByTag("1");
-
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         Fragment fragment;

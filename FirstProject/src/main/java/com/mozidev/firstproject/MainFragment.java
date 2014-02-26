@@ -38,8 +38,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
          longList = (Button) view.findViewById(R.id.longList);
         longList.setOnClickListener(this);
 
-         /*locales = (Button) view.findViewById(R.id.locales);
-        locales.setOnClickListener(this);*/
+         locales = (Button) view.findViewById(R.id.locales);
+        locales.setOnClickListener(this);
 
     }
 
@@ -60,9 +60,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                 target = LongListActivity.class;
                 break;
 
-            /*case R.id.locales:
-                target = MyTabActivity.class;
-                break;*/
+            case R.id.locales:
+                target = TestView.class;
+                break;
 
             default:
                 target = WebActivity.class;
