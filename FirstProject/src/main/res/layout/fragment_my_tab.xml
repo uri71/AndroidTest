@@ -2,8 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.mozidev.firstproject.MyTabActivity$PlaceholderFragment">
+    android:orientation="vertical">
 
     <TabHost
         android:id="@android:id/tabhost"
@@ -25,7 +24,6 @@
                 android:id="@android:id/tabcontent"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent">
-
             </FrameLayout>>
 
         </LinearLayout>>
