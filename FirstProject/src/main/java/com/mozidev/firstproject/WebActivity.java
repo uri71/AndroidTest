@@ -16,7 +16,6 @@ public class WebActivity extends FragmentActivity {
     }
 
 
-
 }
 
 

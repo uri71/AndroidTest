@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:padding="4dp"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".WebActivity$PlaceholderFragment">
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+              android:padding="4dp"
+              xmlns:tools="http://schemas.android.com/tools"
+              tools:context=".WebActivity$PlaceholderFragment">
 
     <EditText
         android:layout_width="fill_parent"
@@ -12,7 +12,7 @@
         android:id="@+id/etScheme"
         android:text="@string/scheme"
         android:padding="4dp"
-        android:inputType="textUri" />
+        android:inputType="textUri"/>
 
     <WebView
         android:id="@+id/webview"

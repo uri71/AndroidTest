@@ -41,8 +41,8 @@ public class LocalesActivity extends FragmentActivity {
     }
 
     public class LocalesFragment extends ListFragment {
-        final String EXTRAS_COUNTRY ="EXTRAS_COUNTRY";
-        final String EXTRAS_TEXT ="EXTRAS_TEXT";
+        final String EXTRAS_COUNTRY = "EXTRAS_COUNTRY";
+        final String EXTRAS_TEXT = "EXTRAS_TEXT";
         final String EXTRAS_IMAGE_RESOURSE = "EXTRAS_IMAGE_RESOURSE";
         NewAcyncTask task;
 
@@ -55,6 +55,7 @@ public class LocalesActivity extends FragmentActivity {
             View rootView = inflater.inflate(R.layout.fragment_locales, container, false);
 
             registerForContextMenu(rootView.findViewById(android.R.id.list));
+            setTitle("Локалес Активити");
             return rootView;
 
         }
@@ -62,12 +63,12 @@ public class LocalesActivity extends FragmentActivity {
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-            task= new NewAcyncTask();
+            task = new NewAcyncTask();
             task.execute();
         }
 
         @Override
-        public void onCreateContextMenu (ContextMenu menu, View v,ContextMenu.ContextMenuInfo menuInfo) {
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             super.onCreateContextMenu(menu, v, menuInfo);
             getMenuInflater().inflate(R.menu.fragment_locales_context_menu, menu);
         }
@@ -99,7 +100,7 @@ public class LocalesActivity extends FragmentActivity {
             ArrayList<Item> displayCountries;
             ProgressDialog progressDialog;
 
-        @Override
+            @Override
             protected void onPreExecute() {
                 super.onPreExecute();
                 progressDialog = ProgressDialog.show(getActivity(), null, "Please, wait..", true, false);
@@ -161,7 +162,7 @@ public class LocalesActivity extends FragmentActivity {
                         R.layout.item_long_list, displayCountries);
                 setListAdapter(adapter);
 
-                                                                                                //getListView().setOnItemLongClickListener(itemLongClickListener);
+                //getListView().setOnItemLongClickListener(itemLongClickListener);
 
                 progressDialog.dismiss();
                 progressDialog = null;

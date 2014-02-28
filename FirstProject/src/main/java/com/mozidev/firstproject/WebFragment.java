@@ -2,7 +2,6 @@ package com.mozidev.firstproject;
 
 
 import android.os.Bundle;
-
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +49,7 @@ public class WebFragment extends Fragment implements View.OnClickListener {
 
     private class HelloWebViewClient extends WebViewClient {
         @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url){
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
             view.loadUrl(url);
 

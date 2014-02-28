@@ -1,12 +1,8 @@
 package com.mozidev.firstproject;
 
 
-
-
-
 import android.content.Context;
 import android.os.Bundle;
-
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -16,10 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.apache.http.message.BasicListHeaderIterator;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -70,6 +63,7 @@ public class LongListActivity extends FragmentActivity {
 
             private List<Item> items;
             private LayoutInflater inflater;
+            private int i = 0;
 
             public MyArrayAdapter(Context context, int resource, List<Item> data) {
 
@@ -111,6 +105,10 @@ public class LongListActivity extends FragmentActivity {
 
                 TextView tvItemLL2 = (TextView) v.findViewById(R.id.tvItemLL2);
                 tvItemLL2.setText(text2);
+                if(i%2==0)
+                v.setBackgroundResource(R.drawable.test1_drawable);
+                else v.setBackgroundResource(R.drawable.test2_drawable);
+                i++;
 
                 return v;
             }

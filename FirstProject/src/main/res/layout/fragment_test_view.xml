@@ -13,33 +13,30 @@
         android:spinnerMode="dropdown"
         android:entries="@array/spinner1"/>
 
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/tv_spinner_press_button"/>
+
+    <Button
+        android:id="@+id/btn_spinner1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:text="@string/spinner1"
+        />
+
     <Spinner
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/spinner2"
         android:spinnerMode="dialog"
-        android:entries="@array/spinner2"/>
+        android:entries="@array/spinner1"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/tv_spinner_touch_item"/>
-
-    <Button
-       android:id="@+id/btn_spinner1"
-       android:layout_height="wrap_content"
-       android:layout_width="wrap_content"
-       android:padding="10dp"
-       android:text="@string/spinner1"
-       android:onClick="onClick"
-       />
-
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/tv_adapter_item"/>
-
-
 
 
 

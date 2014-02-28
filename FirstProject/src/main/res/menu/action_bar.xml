@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_save"
+        android:icon="@android:drawable/ic_menu_save"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_save"/>
+    <item
+        android:id="@+id/menu_delete"
+        android:icon="@android:drawable/ic_search_category_default"
+        android:actionViewClass="android.widget.SearchView"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/menu_delete"/>
+
+    <group>
+        <item
+            android:id="@+id/selecta"
+            android:title="Переключатель A"/>
+        <item
+            android:id="@+id/selectb"
+            android:title="Переключатель B"/>
+        <item
+            android:id="@+id/selectc"
+            android:title="Переключатель C"/>
+    </group>
+
+    <item
+        android:id="@+id/menu_search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@android:drawable/ic_search_category_default"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/menu_search"/>
+
+</menu>

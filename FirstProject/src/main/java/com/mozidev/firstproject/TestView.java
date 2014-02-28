@@ -52,10 +52,10 @@ public class TestView extends ActionBarActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class SpinnerFragment extends Fragment implements View.OnClickListener{
+    public static class SpinnerFragment extends Fragment implements View.OnClickListener {
         private Spinner spinner1, spinner2;
-        private TextView tv_spinner_touch_item;
-        //private Button btn_spinner1;
+        private TextView tv_spinner_touch_item, tv_spinner_press_button;
+        private Button btn_spinner1;
 
         public SpinnerFragment() {
         }
@@ -68,7 +68,9 @@ public class TestView extends ActionBarActivity {
             spinner1 = (Spinner) rootView.findViewById(R.id.spinner1);
             spinner2 = (Spinner) rootView.findViewById(R.id.spinner2);
             tv_spinner_touch_item = (TextView) rootView.findViewById(R.id.tv_spinner_touch_item);
-           // btn_spinner1 = (Button) rootView.findViewById(R.id.btn_spinner1);
+            tv_spinner_press_button = (TextView) rootView.findViewById(R.id.tv_spinner_press_button);
+            btn_spinner1 = (Button) rootView.findViewById(R.id.btn_spinner1);
+
 
             return rootView;
         }
@@ -76,30 +78,33 @@ public class TestView extends ActionBarActivity {
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                    R.id.tv_adapter_item, R.array.spinner2);
+
+
+            ArrayAdapter<?> adapter =
+                    ArrayAdapter.createFromResource(getActivity(), R.array.spinner1, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner2.setAdapter(adapter);
 
             spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    String[] item = getResources().getStringArray(R.array.spinner2);
-                    tv_spinner_touch_item.setText("Вы выбрали в spinner2" + item[i]);
+                    String[] item = getResources().getStringArray(R.array.spinner1);
+                    tv_spinner_touch_item.setText("Вы выбрали в spinner2  " + item[i]);
                 }
 
                 @Override
                 public void onNothingSelected(AdapterView<?> adapterView) {
                 }
             });
-            //btn_spinner1.setOnClickListener(this);
+
+            btn_spinner1.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
 
             if (spinner1.getSelectedItem() != null)
-                tv_spinner_touch_item.setText("Вы выбрали в spinner1" +
-                        spinner1.getSelectedItem().toString());
+                tv_spinner_press_button.setText("Вы выбрали в spinner1  " + spinner1.getSelectedItem().toString());
         }
     }
 }

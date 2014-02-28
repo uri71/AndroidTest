@@ -1,59 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mozidev.firstproject"
-    android:versionCode="16"
-    android:versionName="0.0.016" >
+          package="com.mozidev.firstproject"
+          android:versionCode="17"
+          android:versionName="0.0.017">
 
     <uses-sdk
-        android:minSdkVersion="7"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name="com.mozidev.firstproject.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.mozidev.firstproject.SecondActivity"
-            android:label="@string/title_activity_two" >
+            android:label="@string/title_activity_two">
         </activity>
         <activity
             android:name="com.mozidev.firstproject.WebActivity"
-            android:label="@string/title_activity_web" >
+            android:label="@string/title_activity_web">
         </activity>
         <activity
             android:name="com.mozidev.firstproject.CountriesActivity"
-            android:label="@string/title_activity_countries" >
+            android:label="@string/title_activity_countries">
         </activity>
         <activity
             android:name="com.mozidev.firstproject.LongListActivity"
-            android:label="@string/title_activity_test" >
+            android:label="@string/title_activity_test"
+            >
         </activity>
         <activity
             android:name="com.mozidev.firstproject.LocalesActivity"
-            android:label="@string/title_activity_locales" >
+            android:label="@string/title_activity_locales">
         </activity>
         <activity
             android:name="com.mozidev.firstproject.DisplayLocalesActivity"
-            android:label="@string/display_locales_activity" >
+            android:label="@string/display_locales_activity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.mozidev.firstproject.MyTabActivity"
-            android:label="@string/title_activity_my_tab" >
+            android:label="@string/title_activity_my_tab">
         </activity>
         <activity
             android:name="com.mozidev.firstproject.TestView"
-            android:label="@string/title_activity_test_view" >
+            android:label="@string/title_activity_test_view">
         </activity>
     </application>
 

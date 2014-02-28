@@ -43,32 +43,32 @@ public class CountriesFragment extends ListFragment {
     }
 }
 
-    class MyArAdapter <String> extends ArrayAdapter {
-        private LayoutInflater inflater;
-        private List<String> countres;
+class MyArAdapter<String> extends ArrayAdapter {
+    private LayoutInflater inflater;
+    private List<String> countres;
 
-    public MyArAdapter (Context context,  int resource, List<String> countres){
+    public MyArAdapter(Context context, int resource, List<String> countres) {
         super(context, resource, countres);
         inflater = LayoutInflater.from(context);
         this.countres = countres;
 
     }
-    public View getView (int position, View convertView, ViewGroup parent){
+
+    public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
 
         if (v == null) {
             v = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
         }
 
-        TextView text1 = (TextView)v.findViewById(android.R.id.text1);
+        TextView text1 = (TextView) v.findViewById(android.R.id.text1);
         text1.setText(countres.get(position).toString());
 
-        if (position%2==0 ){
-        text1.setBackgroundColor(Color.BLUE);
-        }
-        else text1.setBackgroundColor(Color.GRAY);
+        if (position % 2 == 0) {
+            text1.setBackgroundColor(Color.BLUE);
+        } else text1.setBackgroundColor(Color.GRAY);
 
-    return v;
+        return v;
     }
 
 }
