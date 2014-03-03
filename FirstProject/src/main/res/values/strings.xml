@@ -52,6 +52,7 @@
     <string name="menu_save">Save</string>
     <string name="menu_delete">DELETE</string>
     <string name="menu_search">Search</string>
+
     <string-array name="spinner1">
         <item>One</item>
         <item>Two</item>
@@ -59,4 +60,9 @@
         <item>For</item>
         <item>Five</item>
     </string-array>
+
+    <string name="title_activity_http">HttpActivity</string>
+    <string name="http_fragment">HTTPFragment</string>
+    <string name="http_activity">HTTP_ACTIVITY</string>
+
 </resources>

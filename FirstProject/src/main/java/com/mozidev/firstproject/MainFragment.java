@@ -2,14 +2,12 @@ package com.mozidev.firstproject;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 public class MainFragment extends Fragment implements View.OnClickListener {
     public MainFragment() {
@@ -25,7 +23,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button btnTop, btnBot, countries, longList, locales, btn_locales;
+        Button btnTop, btnBot, countries, longList, locales, btnhttp;
 
         btnTop = (Button) view.findViewById(R.id.btnTop);
         btnTop.setOnClickListener(this);
@@ -42,9 +40,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         locales = (Button) view.findViewById(R.id.locales);
         locales.setOnClickListener(this);
 
-        LinearLayout llMFrag = (LinearLayout) view.findViewById(R.id.llMFrag);
+        btnhttp = (Button) view.findViewById(R.id.http);
+        btnhttp.setOnClickListener(this);
 
-        btn_locales = new Button(getActivity());
+        // LinearLayout llMFrag = (LinearLayout) view.findViewById(R.id.llMFrag);
+
+        /*btn_locales = new Button(getActivity());
         btn_locales.setLayoutParams(new ViewGroup.LayoutParams(-1,-2));
 
         btn_locales.setText("LOCAL");
@@ -53,7 +54,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         btn_locales.setBackgroundColor(Color.GRAY);
         btn_locales.setPadding(0, 25, 25, 0);
 
-        llMFrag.addView(btn_locales);
+        llMFrag.addView(btn_locales);*/
 
     }
 
@@ -80,6 +81,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
             case 1:
                 target = LocalesActivity.class;
+                break;
+
+            case R.id.http:
+                target = HttpActivity.class;
                 break;
 
             default:
